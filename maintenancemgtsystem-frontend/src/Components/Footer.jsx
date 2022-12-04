@@ -14,7 +14,7 @@ const Footer = () => {
       <Container>
         <Col lg={12} className="text-center text-muted">
           <div>
-            {fullYear}, All Rights Reserved @Group7
+            All Rights Reserved @Group7, {fullYear}
           </div>
         </Col>
       </Container>
