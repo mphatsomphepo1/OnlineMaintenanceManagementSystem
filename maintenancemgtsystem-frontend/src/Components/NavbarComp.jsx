@@ -41,7 +41,7 @@ export default class NavbarComp extends Component {
                     </Navbar>
                 </div>
                 <div>
-                    <Switch>
+                    {/* <Switch> */}
                         <Route path="/about">
                             <About />
                         </Route>
@@ -63,7 +63,7 @@ export default class NavbarComp extends Component {
                         <Route path="/other">
                             <OtherSection />
                         </Route>
-                    </Switch>
+                    {/* </Switch> */}
                 </div>
             </Router>
         )
