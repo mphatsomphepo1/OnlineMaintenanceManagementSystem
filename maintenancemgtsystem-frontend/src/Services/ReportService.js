@@ -14,6 +14,13 @@ class ReportService{
     updateReport(report, id){
         return axios.put(REPORT_API_BASE_URL + "/" + id, report);
     }
+
+    get(){
+        return axios.get(REPORT_API_BASE_URL);
+    }
+    saveFaults(faults){
+        return axios.post(REPORT_API_BASE_URL, faults);
+    }
 }
 
 export default new ReportService();

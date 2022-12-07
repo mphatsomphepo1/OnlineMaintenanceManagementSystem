@@ -9,10 +9,10 @@ function Heropg () {
       <>
         <div className="home" >
           <div className="headerContainer">
-            <h1>Campus Facility Maintenance System</h1>
+            <h1>Campus Maintenance Mgt System</h1>
             <p>Report Campus Maintenance Issues</p>
             <Link to='/addreport'><button className='btn'>Report Now</button></Link>
-            <Link to='/list'><button className='btn'>View List</button></Link>
+            <Link to='/list'><button className='btn'>View Reports</button></Link>
           </div>
         </div>
       </>
