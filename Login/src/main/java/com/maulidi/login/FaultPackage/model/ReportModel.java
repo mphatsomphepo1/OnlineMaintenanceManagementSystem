@@ -5,4 +5,5 @@ public class ReportModel {
     private String faultName;
     private String description;
     private String roomNo;
+    private String dateOccured;
 }

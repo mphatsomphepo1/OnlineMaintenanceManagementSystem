@@ -15,4 +15,5 @@ public class Report {
     private String faultName;
     private String description;
     private String roomNo;
+    private String dateOccured;
 }

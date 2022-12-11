@@ -21,6 +21,7 @@ public class ReportServiceImpl implements ReportService{
         report1.setFaultName(report.getFaultName());
         report1.setDescription(report.getDescription());
         report1.setRoomNo(report.getRoomNo());
+        report1.setDateOccured(report.getDateOccured());
         reportRepository.save(report1);
         return report1;
     }
