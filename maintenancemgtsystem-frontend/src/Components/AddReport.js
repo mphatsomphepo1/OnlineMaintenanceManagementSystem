@@ -9,6 +9,7 @@ const AddReport = () => {
     id: "",
     faultName: "",
     description: "",
+    dateOccured: "",
     roomNo:""
   });
   const navigate = useNavigate();
@@ -37,7 +38,8 @@ const AddReport = () => {
       id: "",
       faultName: "",
       description: "",
-      roomNo:""
+      roomNo:"",
+      dateOccured: ""
     })
   }
   return (
@@ -79,13 +81,24 @@ const AddReport = () => {
              onChange={(e)=> handleChange(e)}
               className='h-10 w-96 bg-slate-400 border mt-2 px-2'/>
         </div>
+        <div className='items-center justify-center h-14 w-full my-4'>
+            <label className='block text-black text-sm font-normal'>
+                Date: 
+            </label>
+            <textarea 
+            type='date'
+            name="dateOccured"
+            value={report.dateOccured}
+            onChange={(e)=> handleChange(e)}
+             className='h-10 w-96 bg-slate-400 border mt-2 px-2'/>
+        </div>
         <div className='items-center justify-center h-14 w-full my-4 space-x-4 pt-4'>
            <button
            onClick={saveReport} 
-           className='rounded text-white font-semibold bg-green-400 py-2 px-2 hover:bg-indigo-500 py-2'>Save</button>
+           className='rounded text-white font-semibold bg-slate-900 py-2 px-8 hover:bg-indigo-500'>Save</button>
            <button
            onClick={clear}
-            className='rounded text-white font-semibold bg-red-400 py-2 px-2 hover:bg-indigo-500 py-2'>
+            className='rounded text-white font-semibold bg-red-400 py-2 px-8 hover:bg-indigo-500'>
               Clear
             </button>
         </div>

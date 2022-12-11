@@ -38,13 +38,16 @@ const ListReports = () => {
             <tbody className='bg-gray-300'>
             <tr key={data.id}>
                 <td className='text-left px-1 py-2 whitespace-normal'>
-                    <div className='text-sm text-gray-600'>{data.faultName}</div>
+                    <div className='text-sm text-gray-600 font=bold'>{data.faultName}</div>
                 </td>
                 <td className='text-left px-1 py-2 whitespace-normal'>
-                    <div className='text-sm text-gray-600'>{data.description}</div>
+                    <div className='text-sm text-gray-600 font=bold'>{data.description}</div>
                 </td>
                 <td className='text-left px-1 py-2 whitespace-normal'>
-                    <div className='text-sm text-gray-600'>{data.roomNo}</div>
+                    <div className='text-sm text-gray-600 font=bold'>{data.roomNo}</div>
+                </td>
+                <td className='text-left px-1 py-2 whitespace-normal'>
+                    <div className='text-sm text-gray-600 font=bold'>{data.dateOccured}</div>
                 </td>
                 <td className='text-right px-1 py-2 whitespace-normal'>
                     <div className='items-center justify-center h-16 w-full my-1 space-x-4 pt-4'>
@@ -71,7 +74,7 @@ const ListReports = () => {
     
     const navigate = useNavigate();
   return (
-    <div className='container mx-auto my-8'>
+    <div className='container mx-auto my-4'>
         <div className='h-12'>
             <button 
             onClick={()=> navigate("/addreport")}
@@ -91,6 +94,9 @@ const ListReports = () => {
                         </td>
                         <td className='text-left font-medium text-gray-700 uppercase tracking-wider py-2 px-6'>
                             Room Name
+                        </td>
+                        <td className='text-right font-medium text-gray-700 uppercase tracking-wider py-2 px-6'>
+                            Date Occured
                         </td>
                         <td className='text-right font-medium text-gray-700 uppercase tracking-wider py-2 px-6'>
                             State
