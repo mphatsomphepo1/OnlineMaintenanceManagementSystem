@@ -12,6 +12,7 @@ function App() {
          <Navbar/>
          <Routes>
             <Route index element={<Heropg/>}/>
+            <Route path='/' element={<ListReports/>}/>
             <Route path='/list'element={<ListReports/>}/>
             <Route path='/addreport'element={<AddReport/>}/>
          </Routes>

@@ -50,7 +50,7 @@ const ListReports = () => {
                     <div className='items-center justify-center h-16 w-full my-1 space-x-4 pt-4'>
                         <button
                         className='rounded text-white font-semibold bg-indigo-500 py-2 px-2 hover:bg-green-900'>
-                            Not Fixed
+                            Pending
                         </button>
                         <button
                         onClick={(e) => deleteReport(data.id,e)}
