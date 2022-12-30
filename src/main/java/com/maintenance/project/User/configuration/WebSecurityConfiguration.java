@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] WHITE_URLS = {
             "/authenticate",
-            "/auth/userinfo",
+            "/register",
             "/api/v1/**"
     };
     @Autowired

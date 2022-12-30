@@ -22,7 +22,7 @@ public class UserController {
         userService.initRoleAndUser();
     }
 
-    @PostMapping({"/registerNewUser"})
+    @PostMapping({"/register"})
     public Stakeholder registerNewUser(@RequestBody Stakeholder user) {
         return userService.registerNewUser(user);
     }

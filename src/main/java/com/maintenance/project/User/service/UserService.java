@@ -30,9 +30,14 @@ public class UserService {
         adminRole.setRoleDescription("Admin role");
         roleDao.save(adminRole);
 
+        Role workerRole = new Role();
+        workerRole.setRoleName("Worker");
+        workerRole.setRoleDescription("Worker's role");
+        roleDao.save(workerRole);
+
         Role userRole = new Role();
         userRole.setRoleName("User");
-        userRole.setRoleDescription("Default role for newly created record");
+        userRole.setRoleDescription("Default role for user");
         roleDao.save(userRole);
 
         Stakeholder adminUser = new Stakeholder();
@@ -44,6 +49,16 @@ public class UserService {
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
         userDao.save(adminUser);
+
+        Stakeholder worker = new Stakeholder();
+        worker.setUserName("eva123");
+        worker.setUserPassword(getEncodedPassword("1234"));
+        worker.setUserFirstName("Evans");
+        worker.setUserLastName("Maulidi");
+        Set<Role> workersRole = new HashSet<>();
+        workersRole.add(adminRole);
+        worker.setRole(workersRole);
+        userDao.save(worker);
 
         Stakeholder user = new Stakeholder();
         user.setUserName("Phil");
@@ -57,7 +72,7 @@ public class UserService {
     }
 
     public Stakeholder registerNewUser(Stakeholder user) {
-        Role role = roleDao.findById("User").get();
+        Role role = roleDao.findById("Admin").get();
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(role);
         user.setRole(userRoles);
