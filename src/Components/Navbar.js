@@ -3,15 +3,15 @@ import logo from '../assets/log.png'
 
 const Navbar = () => {
   let Links =[
-    {name:"Home",link:"/"},
+    // {name:"Home",link:"/"},
     {name:"Report",link:"/addreport"},
-    {name:"View",link:"/list"},
+    // {name:"View",link:"/list"},
     {name:"Login",link:"/login"},
-    {name:"About",link:"/about"},
+    // {name:"About",link:"/about"},
   ];
   let [open,setOpen]=useState(false);
 return (
-  <div className='bg-gray-800'>
+  <div className='bg-indigo-800'>
     <div className='md:flex items-center justify-between bg-gray-800 py-2 md:px-10 px-7'>
     <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
     text-gray-800'>

@@ -1,52 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { LoginUser } from '../Services/UserService';
 import { doLogin } from '../auth/Auth';
 
 export default function Login() {
 
     const navigate = useNavigate()
-    const [logindetail, setLogindetail] = useState({
-        userName: '',
-        userPassword: ''
-    });
+    // const [logindetail, setLogindetail] = useState({
+    //     userName: '',
+    //     userPassword: ''
+    // });
+    const [userName, setUserName] = useState("");
+    const [userPassword, setuserPassword] = useState("");
 
-    const handleChange = (event, field) => {
-        let actualValue = event.target.value
-        setLogindetail({
-            ...logindetail,[field]: actualValue
-        })
-    }
+    function handlesubmit() {
+        console.log(userName);
+        console.log(userPassword);
+        const request = {
+            userName: userName,
+            userPassword: userPassword
+        };
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-        console.log(logindetail);
-        // handle validation
-        if(logindetail.userName.trim() ==="" || 
-          logindetail.userPassword.trim() ==="") {
-            toast.error("Username and password required")
-            return;
-        }
-        // submit data to server
-        LoginUser(logindetail).then((jwtTokenData)=> {
-            console.log("User Login: ")
-            console.log(jwtTokenData)
+        fetch("http://localhost:9090/authenticate",{
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "post",
+            body: JSON.stringify(request) 
+        });
 
-            // save the data to localStorage
-            doLogin(jwtTokenData, ()=>{
-                console.log("Login setails saved to localStorage")
-            })
-            toast.success("User Login is Successful")
-            navigate("/list")
-        }).catch(error => {
-            console.log(error)
-            if(error.response.status===401 || error.response.status===404){
-                toast.error(error.response.data.message)
-            }
-            toast.error("something went wrong on server ")
-        })
     }
 
     return (
@@ -57,7 +41,7 @@ export default function Login() {
                     Sign in
                     </h1>
                 </div>
-                <form className="mt-6" onSubmit={handleFormSubmit}>
+                <form className="mt-6">
                     <div className='items-center justify-center h-14 w-full my-4'>
                         <label
                             htmlFor="email"
@@ -68,8 +52,8 @@ export default function Login() {
                         <input
                             type="text"
                             id='userName'
-                            value={logindetail.userName}
-                            onChange={(e) => handleChange(e, 'userName')}
+                            value={userName}
+                            onChange={(e) => setUserName(e.target.value)}
                             className="h-10 w-96 border  bg-slate-100 px-4 py-2 mt-2 text-gray-700  rounded-md focus:border-slate-400
                              focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
@@ -84,8 +68,8 @@ export default function Login() {
                         <input
                             type="password"
                             id='userPassword'
-                            value={logindetail.userPassword}
-                            onChange={(e) => handleChange(e, 'userPassword')}
+                            value={userPassword}
+                            onChange={(e) => setuserPassword(e.target.value)}
                             className="h-10 w-96 border  bg-slate-100 mt-2 px-2
                              text-gray-700 rounded-md focus:border-slate-400
                              focus:ring-slate-300 focus:outline-none focus:ring focus:ring-opacity-40"
@@ -93,6 +77,7 @@ export default function Login() {
                     </div>
                     <div className="mt-6">
                     <button
+                    onClick={()=> handlesubmit()}
                         className='rounded text-white font-semibold bg-slate-900 py-2 px-8 hover:bg-indigo-500'>
                            Login
                    </button>

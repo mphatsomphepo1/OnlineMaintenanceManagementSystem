@@ -57,7 +57,7 @@ const AddReport = () => {
             name="faultName"
             value={report.faultName}
             onChange={(e)=> handleChange(e)}
-            className='h-10 w-96 border bg-slate-400 mt-2 px-2'/>
+            className='h-10 w-96 border bg-slate-100 mt-2 px-2'/>
         </div>
         <div className='items-center justify-center h-14 w-full my-4'>
             <label className='block text-black text-sm font-normal'>
@@ -68,7 +68,7 @@ const AddReport = () => {
             name="description"
             value={report.description}
             onChange={(e)=> handleChange(e)}
-             className='h-10 w-96 bg-slate-400 border mt-2 px-2'/>
+            className='h-10 w-96 border bg-slate-100 mt-2 px-2'/>
         </div>
         <div className='items-center justify-center h-14 w-full my-4'>
             <label className='block text-black text-sm font-normal'>
@@ -79,8 +79,8 @@ const AddReport = () => {
              name="roomNo"
              value={report.roomNo}
              onChange={(e)=> handleChange(e)}
-              className='h-10 w-96 bg-slate-400 border mt-2 px-2'/>
-        </div>
+             className='h-10 w-96 border bg-slate-100 mt-2 px-2'/>
+             </div>
         <div className='items-center justify-center h-14 w-full my-4'>
             <label className='block text-black text-sm font-normal'>
                 Date: 
@@ -90,7 +90,7 @@ const AddReport = () => {
             name="dateOccured"
             value={report.dateOccured}
             onChange={(e)=> handleChange(e)}
-             className='h-10 w-96 bg-slate-400 border mt-2 px-2'/>
+            className='h-10 w-96 border bg-slate-100 mt-2 px-2'/>
         </div>
         <div className='items-center justify-center h-14 w-full my-4 space-x-4 pt-4'>
            <button
