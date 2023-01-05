@@ -3,9 +3,9 @@ import logo from '../assets/log.png'
 
 const Navbar = () => {
   let Links =[
-    // {name:"Home",link:"/"},
-    // {name:"Report",link:"/user"},
-    // {name:"About",link:"/about"},
+    {name:"Home",link:"/"},
+    {name:"Report",link:"/user"},
+    {name:"About",link:"/about"},
   ];
   let [open,setOpen]=useState(false);
 return (
