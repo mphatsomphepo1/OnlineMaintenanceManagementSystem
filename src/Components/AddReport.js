@@ -25,7 +25,8 @@ const AddReport = () => {
     ReportService.saveReport(report)
     .then((Response)=> {
       console.log(Response)
-      navigate("/list")
+      alert("The fault has been reported Successfuly... Thank!!")
+      navigate("/")
     })
     .catch((error)=> {
       console.log(error)
@@ -46,7 +47,7 @@ const AddReport = () => {
     <div className='flex max-w-2xl mx-auto shadow border-b'>
       <div className='px-8 py-8'>
         <div className='font-thin text-2xl tracking-wider'>
-            <h1>Add new Fault</h1>
+            <h1>Report A Fault</h1>
         </div>
         <div className='items-center justify-center h-14 w-full my-4'>
             <label className='block text-black text-sm font-normal'>
@@ -85,8 +86,8 @@ const AddReport = () => {
             <label className='block text-black text-sm font-normal'>
                 Date: 
             </label>
-            <textarea 
-            type='date'
+            <input
+             type='date' 
             name="dateOccured"
             value={report.dateOccured}
             onChange={(e)=> handleChange(e)}

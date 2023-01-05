@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const REPORT_API_BASE_URL = "http://localhost:8080/api/v1/report"
+const REPORT_API_BASE_URL = "https://campus-maintenance-system.herokuapp.com/api/v1/report"
 
 class ReportService{
     
@@ -13,9 +13,7 @@ class ReportService{
     deleteReport(id){
         return axios.delete(REPORT_API_BASE_URL + "/" + id);
     }
-    updateReport(report, id){
-        return axios.put(REPORT_API_BASE_URL + "/" + id, report);
-    }
+   
 
     get(){
         return axios.get(REPORT_API_BASE_URL);

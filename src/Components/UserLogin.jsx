@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { LoginUser } from '../Services/UserService';
 import { doLogin } from '../auth/Auth';
 
-export default function Login() {
+export default function UserLogin() {
 
     const navigate = useNavigate()
     const [logindetail, setLogindetail] = useState({
@@ -33,12 +33,12 @@ export default function Login() {
         LoginUser(logindetail).then((jwtTokenData)=> {
             console.log("User Login: ")
             let userRoles =jwtTokenData.user.role 
-            let isAdmin = false;
+            let isUser = false;
             userRoles.map(async (role) => {
-                if(role.roleName === "Admin"){
-                    isAdmin = true;
-                    alert("Admin Logged in Successfully")
-                    navigate("/list")
+                if(role.roleName === "User"){
+                    isUser = true;
+                    alert("User Login is Successful")
+                    navigate("/addreport")
                 }
             })
             // console.log(jwtTokenData.user.role )
@@ -48,17 +48,15 @@ export default function Login() {
                 console.log("Login details saved to localStorage")
             })
             // toast.success("User Login is Successful")
-           if(isAdmin === false){
-            alert("You are Unauthorized")
-            navigate("/user")
+           if(isUser === false){
+            alert("You are not a User")
            }
-            
         }).catch(error => {
             console.log(error)
             if(error.response.status===401 || error.response.status===404){
-                alert(error.response.data.message)
+                toast.error(error.response.data.message)
             }
-            alert("something went wrong on server ")
+            toast.error("something went wrong on server ")
         })
     }
 
@@ -67,10 +65,10 @@ export default function Login() {
             <div className="px-8 py-8">
                 <div className="font-thin text-2xl tracking-wider">
                     <h1 >
-                    Sign in as Admin
+                    Sign in as Student
                     </h1>
                 </div>
-                <form className="mt-6" onSubmit={handleFormSubmit} noValidate={false}>
+                <form className="mt-6" onSubmit={handleFormSubmit}>
                     <div className='items-center justify-center h-14 w-full my-4'>
                         <label
                             htmlFor="email"

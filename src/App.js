@@ -6,8 +6,7 @@ import Navbar from './Components/Navbar';
 import Heropg from './Components/Heropg'
 import Login from './Components/Login';
 import BasicToast from './Components/BasicToast';
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import UserLogin from './Components/UserLogin';
 
 function App() {
   return (
@@ -16,11 +15,11 @@ function App() {
          <Navbar/>
          <Routes>
             <Route index element={<Heropg/>}/>
-            <Route path='/' element={<ListReports/>}/>
             <Route path='/list'element={<ListReports/>}/>
-            <Route path='login' element={<Login/>}/>
+            <Route path='/login' element={<Login/>}/>
             <Route path='/addreport'element={<AddReport/>}/>
             <Route path='/about' element={<BasicToast/>}/>
+            <Route path='/user' element={<UserLogin/>}/>
          </Routes>
          <Footer/>
      </BrowserRouter>
