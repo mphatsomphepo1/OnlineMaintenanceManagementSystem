@@ -1,0 +1,40 @@
+.main-container {
+    width: 90%;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 4rem auto;
+}
+
+.about-rgm {
+    border: .1rem solid rgb(13, 20, 55);
+    border-radius: 8px 8px 8px 8px;
+    width: 80%;
+    height:14em;
+    margin-left: .8rem;
+    background-color:rgb(34, 146, 171);
+}
+
+h4 {
+    border-bottom: .1rem solid rgb(14, 73, 86);
+    color: rgba(255, 255, 255, 0.807);
+    background-color:rgb(13, 20, 55);
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+h3 {
+    /* color: rgb(34, 146, 171); */
+    text-align: center;
+    margin: 1.5rem auto;
+    border-bottom: .1rem dashed rgba(255, 255, 255, 0.807);
+    width: 30%;
+    text-transform: uppercase;
+}
+
+.Par {
+   background-color: #040618;
+   padding:.5rem;
+   background-color:white;
+   border-radius: 8px 8px 47% 0%;
+   }

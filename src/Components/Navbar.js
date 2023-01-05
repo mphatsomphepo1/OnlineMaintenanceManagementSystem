@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import logo from '../assets/log.png'
 
 const Navbar = () => {
@@ -15,8 +16,9 @@ return (
     text-gray-800'>
       <div className='text-3xl text-white-600 mr-1 pt-2'>
       <img src={logo} alt='logo' className='h-12'/>
-      </div>
-      <p className='text-white font-bold'>Campus Mgt System</p>
+      </div >
+	  <div className="Deco"><p className='text-white font-bold '> Campus Mgt System </p>
+	  </div>
     </div>
     
     <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>

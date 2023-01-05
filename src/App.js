@@ -5,9 +5,8 @@ import ListReports from './Components/ListReports';
 import Navbar from './Components/Navbar';
 import Heropg from './Components/Heropg'
 import Login from './Components/Login';
-import BasicToast from './Components/BasicToast';
 import UserLogin from './Components/UserLogin';
-
+import About from './Components/About';
 function App() {
   return (
      <div>
@@ -18,8 +17,8 @@ function App() {
             <Route path='/list'element={<ListReports/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/addreport'element={<AddReport/>}/>
-            <Route path='/about' element={<BasicToast/>}/>
             <Route path='/user' element={<UserLogin/>}/>
+            <Route path='/about' element={<About/>}/>
          </Routes>
          <Footer/>
      </BrowserRouter>
