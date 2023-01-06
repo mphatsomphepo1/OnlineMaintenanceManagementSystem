@@ -1,4 +1,4 @@
-package com.maulidi.login.User.entity;
+package com.maintenance.project.User.entity;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -7,6 +7,7 @@ import java.util.Set;
 public class Stakeholder {
 
     @Id
+    @Column(unique = true)
     private String userName;
     private String userFirstName;
     private String userLastName;

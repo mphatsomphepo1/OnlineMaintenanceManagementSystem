@@ -1,4 +1,4 @@
-package com.maulidi.login.FaultPackage.entity;
+package com.maintenance.project.FaultPackage.entity;
 
 import lombok.Data;
 

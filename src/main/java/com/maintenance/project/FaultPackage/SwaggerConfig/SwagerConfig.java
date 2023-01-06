@@ -1,4 +1,4 @@
-package com.maulidi.login.FaultPackage.SwaggerConfig;
+package com.maintenance.project.FaultPackage.SwaggerConfig;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
@@ -25,6 +25,7 @@ public class SwagerConfig {
                 .build()
                 .apiInfo(metaInfo());
     }
+
     private ApiInfo metaInfo() {
         ApiInfo apiInfo = new ApiInfo(
                 "Campus Maintenance Management System",
@@ -35,6 +36,6 @@ public class SwagerConfig {
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0"
         );
-        return  apiInfo;
+        return apiInfo;
     }
 }

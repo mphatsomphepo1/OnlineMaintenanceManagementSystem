@@ -1,4 +1,4 @@
-package com.maulidi.login.User.configuration;
+package com.maintenance.project.User.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

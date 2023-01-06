@@ -1,4 +1,4 @@
-package com.maulidi.login.User.entity;
+package com.maintenance.project.User.entity;
 
 import lombok.Getter;
 import lombok.Setter;

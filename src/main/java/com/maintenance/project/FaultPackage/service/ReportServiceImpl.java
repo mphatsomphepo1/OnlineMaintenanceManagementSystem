@@ -1,13 +1,13 @@
-package com.maulidi.login.FaultPackage.service;
+package com.maintenance.project.FaultPackage.service;
 
-import com.maulidi.login.FaultPackage.entity.Report;
-import com.maulidi.login.FaultPackage.repository.ReportRepository;
+import com.maintenance.project.FaultPackage.repository.ReportRepository;
+import com.maintenance.project.FaultPackage.entity.Report;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ReportServiceImpl implements ReportService{
+public class ReportServiceImpl implements ReportService {
     private ReportRepository reportRepository;
 
     public ReportServiceImpl(ReportRepository reportRepository) {
@@ -49,10 +49,10 @@ public class ReportServiceImpl implements ReportService{
 
     @Override
     public Report updateReport(Long id, Report report) {
-         report = reportRepository.findById(id).get();
-         report.setFaultName(report.getFaultName());
-         report.setDescription(report.getDescription());
-         report.setRoomNo(report.getRoomNo());
+        report = reportRepository.findById(id).get();
+        report.setFaultName(report.getFaultName());
+        report.setDescription(report.getDescription());
+        report.setRoomNo(report.getRoomNo());
 
         return report;
     }

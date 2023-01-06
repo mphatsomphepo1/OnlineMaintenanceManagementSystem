@@ -1,7 +1,7 @@
-package com.maulidi.login.User.controller;
+package com.maintenance.project.User.controller;
 
-import com.maulidi.login.User.entity.Role;
-import com.maulidi.login.User.service.RoleService;
+import com.maintenance.project.User.service.RoleService;
+import com.maintenance.project.User.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

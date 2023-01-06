@@ -1,4 +1,4 @@
-package com.maulidi.login.User.entity;
+package com.maintenance.project.User.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,6 +1,6 @@
-package com.maulidi.login.FaultPackage.repository;
+package com.maintenance.project.FaultPackage.repository;
 
-import com.maulidi.login.FaultPackage.entity.Report;
+import com.maintenance.project.FaultPackage.entity.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

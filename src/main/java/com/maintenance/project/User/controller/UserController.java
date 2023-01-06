@@ -1,21 +1,27 @@
-package com.maulidi.login.User.controller;
+package com.maintenance.project.User.controller;
 
-import com.maulidi.login.User.entity.Stakeholder;
-import com.maulidi.login.User.service.UserService;
+import com.maintenance.project.User.service.UserService;
+import com.maintenance.project.User.entity.Stakeholder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @PostConstruct
     public void initRoleAndUser() {
@@ -27,15 +33,18 @@ public class UserController {
         return userService.registerNewUser(user);
     }
 
-    @GetMapping({"/forAdmin"})
-    @PreAuthorize("hasRole('Admin')")
-    public String forAdmin(){
-        return "This URL is only accessible to the admin";
+    @GetMapping("/auth/userinfo")
+    public List<Stakeholder> getUser(){
+        return userService.getUser();
     }
 
-    @GetMapping({"/forUser"})
-    @PreAuthorize("hasRole('User')")
-    public String forUser(){
-        return "This URL is only accessible to the user";
+    @GetMapping("/user")
+    public Optional<Stakeholder> getByUserName(Authentication authentication){
+        return userService.getByUserName(authentication);
     }
+    @RequestMapping(value = "/userInfo/{userName}", method = RequestMethod.GET)
+    public Stakeholder getUserById(@PathVariable("userName") String userName){
+        return userService.getUserById(userName);
+    }
+
 }

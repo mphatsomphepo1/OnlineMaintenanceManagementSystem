@@ -1,7 +1,7 @@
-package com.maulidi.login.User.configuration;
+package com.maintenance.project.User.configuration;
 
-import com.maulidi.login.User.service.JwtService;
-import com.maulidi.login.User.util.JwtUtil;
+import com.maintenance.project.User.service.JwtService;
+import com.maintenance.project.User.util.JwtUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

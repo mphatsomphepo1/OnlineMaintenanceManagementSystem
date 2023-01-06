@@ -1,4 +1,4 @@
-package com.maulidi.login.FaultPackage.model;
+package com.maintenance.project.FaultPackage.model;
 
 public class ReportModel {
     private Long Id;

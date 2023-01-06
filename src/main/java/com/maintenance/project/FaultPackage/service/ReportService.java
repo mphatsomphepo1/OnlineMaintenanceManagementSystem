@@ -1,6 +1,6 @@
-package com.maulidi.login.FaultPackage.service;
+package com.maintenance.project.FaultPackage.service;
 
-import com.maulidi.login.FaultPackage.entity.Report;
+import com.maintenance.project.FaultPackage.entity.Report;
 
 import java.util.List;
 

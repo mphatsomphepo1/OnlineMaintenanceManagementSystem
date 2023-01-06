@@ -1,14 +1,17 @@
-package com.maulidi.login.User.service;
+package com.maintenance.project.User.service;
 
-import com.maulidi.login.User.entity.Role;
-import com.maulidi.login.User.entity.Stakeholder;
-import com.maulidi.login.User.repository.RoleRepository;
-import com.maulidi.login.User.repository.UserRepository;
+import com.maintenance.project.User.repository.RoleRepository;
+import com.maintenance.project.User.repository.UserRepository;
+import com.maintenance.project.User.entity.Role;
+import com.maintenance.project.User.entity.Stakeholder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -41,30 +44,20 @@ public class UserService {
         roleDao.save(userRole);
 
         Stakeholder adminUser = new Stakeholder();
-        adminUser.setUserName("eva123");
+        adminUser.setUserName("bsc-com-01-19");
         adminUser.setUserPassword(getEncodedPassword("1234"));
-        adminUser.setUserFirstName("Evans");
-        adminUser.setUserLastName("Maulidi");
+        adminUser.setUserFirstName("Thokozanie");
+        adminUser.setUserLastName("Mambere");
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
         adminUser.setRole(adminRoles);
         userDao.save(adminUser);
 
-        Stakeholder worker = new Stakeholder();
-        worker.setUserName("eva123");
-        worker.setUserPassword(getEncodedPassword("1234"));
-        worker.setUserFirstName("Evans");
-        worker.setUserLastName("Maulidi");
-        Set<Role> workersRole = new HashSet<>();
-        workersRole.add(adminRole);
-        worker.setRole(workersRole);
-        userDao.save(worker);
-
         Stakeholder user = new Stakeholder();
-        user.setUserName("Phil");
+        user.setUserName("bsc-inf-20-19");
         user.setUserPassword(getEncodedPassword("123"));
-        user.setUserFirstName("philip");
-        user.setUserLastName("maulidi");
+        user.setUserFirstName("Ben");
+        user.setUserLastName("Kaponda");
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(userRole);
         user.setRole(userRoles);
@@ -83,5 +76,17 @@ public class UserService {
 
     public String getEncodedPassword(String password) {
         return passwordEncoder.encode(password);
+    }
+
+
+    public List<Stakeholder> getUser() {
+        return (List<Stakeholder>) userDao.findAll();
+    }
+
+    public Stakeholder getUserById(String userName) {
+        return userDao.findById(userName).get();
+    }
+    public Optional<Stakeholder> getByUserName(Authentication authentication){
+        return userDao.findByUserName(authentication.getName());
     }
 }

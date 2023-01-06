@@ -1,6 +1,6 @@
-package com.maulidi.login.User.repository;
+package com.maintenance.project.User.repository;
 
-import com.maulidi.login.User.entity.Role;
+import com.maintenance.project.User.entity.Role;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

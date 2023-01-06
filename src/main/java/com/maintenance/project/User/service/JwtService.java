@@ -1,11 +1,11 @@
-package com.maulidi.login.User.service;
+package com.maintenance.project.User.service;
 
-import com.maulidi.login.User.entity.JwtRequest;
-import com.maulidi.login.User.entity.JwtResponse;
-import com.maulidi.login.User.entity.Stakeholder;
-import com.maulidi.login.User.entity.UserInfo;
-import com.maulidi.login.User.repository.UserRepository;
-import com.maulidi.login.User.util.JwtUtil;
+import com.maintenance.project.User.entity.JwtRequest;
+import com.maintenance.project.User.entity.JwtResponse;
+import com.maintenance.project.User.repository.UserRepository;
+import com.maintenance.project.User.entity.Stakeholder;
+import com.maintenance.project.User.entity.UserInfo;
+import com.maintenance.project.User.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -43,18 +43,6 @@ public class JwtService implements UserDetailsService {
         Stakeholder user = userDao.findById(userName).get();
         return new JwtResponse(user, newGeneratedToken);
     }
-    public JwtResponse getUser(UserInfo userInfo) throws Exception {
-        String userName = userInfo.getUserName();
-        String userPassword = userInfo.getUserPassword();
-        authenticate(userName, userPassword);
-
-        UserDetails userDetails = loadUserByUsername(userName);
-        String newGeneratedToken = jwtUtil.generateToken(userDetails);
-
-        Stakeholder user = userDao.findById(userName).get();
-        return new JwtResponse(user, newGeneratedToken);
-    }
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Stakeholder user = userDao.findById(username).get();

@@ -1,8 +1,7 @@
-package com.maulidi.login;
+package com.maintenance.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 @SpringBootApplication

@@ -1,9 +1,9 @@
-package com.maulidi.login.User.controller;
+package com.maintenance.project.User.controller;
 
-import com.maulidi.login.User.entity.JwtRequest;
-import com.maulidi.login.User.entity.JwtResponse;
-import com.maulidi.login.User.entity.UserInfo;
-import com.maulidi.login.User.service.JwtService;
+import com.maintenance.project.User.entity.JwtRequest;
+import com.maintenance.project.User.entity.JwtResponse;
+import com.maintenance.project.User.entity.UserInfo;
+import com.maintenance.project.User.service.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +21,5 @@ public class JwtController {
     @PostMapping({"/authenticate"})
     public JwtResponse createJwtToken(@RequestBody JwtRequest jwtRequest) throws Exception {
         return jwtService.createJwtToken(jwtRequest);
-    }
-
-    @GetMapping("/auth/userinfo")
-    public JwtResponse getUserInfo(@RequestBody UserInfo userInfo) throws Exception{
-        return jwtService.getUser(userInfo);
     }
 }

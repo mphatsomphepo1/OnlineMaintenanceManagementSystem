@@ -1,4 +1,4 @@
-package com.maulidi.login.User.configuration;
+package com.maintenance.project.User.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +22,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String[] WHITE_URLS = {
             "/authenticate",
+            "/auth/userinfo",
+            "/user",
             "/register",
             "/api/v1/**"
     };
@@ -53,7 +55,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         ;
-
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 

@@ -1,7 +1,7 @@
-package com.maulidi.login.User.service;
+package com.maintenance.project.User.service;
 
-import com.maulidi.login.User.entity.Role;
-import com.maulidi.login.User.repository.RoleRepository;
+import com.maintenance.project.User.repository.RoleRepository;
+import com.maintenance.project.User.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,9 @@
-package com.maulidi.login.FaultPackage.controller;
+package com.maintenance.project.FaultPackage.controller;
 
-import com.maulidi.login.FaultPackage.entity.Report;
-import com.maulidi.login.FaultPackage.service.ReportService;
+import com.maintenance.project.FaultPackage.entity.Report;
+import com.maintenance.project.FaultPackage.service.ReportService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -18,17 +19,19 @@ public class ReportController {
     public ReportController(ReportService reportService) {
         this.reportService = reportService;
     }
+
     @PostMapping("/report")
-    public Report createReport(@RequestBody Report report){
+    public Report createReport(@RequestBody Report report) {
         return reportService.createReport(report);
     }
+
     @GetMapping("/report")
-    public List<Report> getAllreports(){
+    public List<Report> getAllreports() {
         return reportService.getAll();
     }
 
     @DeleteMapping("/report/{id}")
-    public ResponseEntity<Map<String,Boolean>> deleteFault(@PathVariable Long id){
+    public ResponseEntity<Map<String, Boolean>> deleteFault(@PathVariable Long id) {
         boolean deleted = false;
         deleted = reportService.deleteReport(id);
 
@@ -36,8 +39,9 @@ public class ReportController {
         response.put("deleted", deleted);
         return ResponseEntity.ok(response);
     }
+
     @GetMapping("/report/{id}")
-    public ResponseEntity<Report> editReport(@PathVariable Long id){
+    public ResponseEntity<Report> editReport(@PathVariable Long id) {
         Report report = null;
         report = reportService.editReport(id);
         return ResponseEntity.ok(report);
@@ -45,7 +49,7 @@ public class ReportController {
 
     @PutMapping("/report/{id}")
     public ResponseEntity<Report> updateReport(@PathVariable Long id,
-                                               @RequestBody Report report){
+                                               @RequestBody Report report) {
         report = reportService.updateReport(id, report);
         return ResponseEntity.ok(report);
     }
