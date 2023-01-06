@@ -44,19 +44,19 @@
     border-radius: 5px;
     cursor: painter;
     justify-content: center;
-    background-color: #121619;
+    background-color: #000221;
     height: 50px;
     width: 180px;
     color: white;
     text-decoration: none;
     font-size: 20px;
-    margin-left: 34%;
+    margin-left: 40%;
     margin-top:20px;
 
 }
 
 .headerContainer button:hover {
-    background-color: #07090a;
+    background-color: blue;
     cursor: pointer;
     transition: 0.3s ease-in;
 }
@@ -75,30 +75,48 @@
         margin-left: 0px;
         border-radius: 10px;
         padding: 10px;
+        margin-top: -95px;
         width: 80%;
+        height: 70%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        background-color: #121619;
+        font-size: 0%;
+        /* background-color: #121619; */
         color: white;
     }
 
     .headerContainer h1 {
-        font-size: 40px;
-        height: 30px;
-        color: white;
+        font-size: 30px;
+        height: 20%;
+        width: 80%;
+        color: black;
+
+
     }
 
     .headerContainer p {
-        font-size: 30px;
+        font-size: 20px;
+        margin-top: 0%;
         color: #121619;
-        margin-bottom: 30px;
+        margin-bottom: 70%;
+        padding-left: 35px;
+        margin-top: 30px;
+    }
+    .btn-lo{
+        margin-top:10px;
+    }
+
+    .headerContainer button {
+        align-items: center;
+        margin-left: 8px;
+        background-color: #000221;
     }
 
     .headerContainer button:hover {
         background-color: rgb(225, 225, 225);
-        color: #121619;
+        color: #074270;
     }
 }
 html {

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import ReportService from '../Services/ReportService'
+import swal from 'sweetalert'
 
 const AddReport = () => {
 
@@ -25,7 +26,7 @@ const AddReport = () => {
     ReportService.saveReport(report)
     .then((Response)=> {
       console.log(Response)
-      alert("The fault has been reported Successfuly... Thank!!")
+      swal("Good job!", "Report Successfull", "success");
       navigate("/")
     })
     .catch((error)=> {

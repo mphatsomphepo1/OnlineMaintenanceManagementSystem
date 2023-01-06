@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoginUser } from '../Services/UserService';
 import { doLogin } from '../auth/Auth';
+import swal from 'sweetalert'
 
 export default function Login() {
 
@@ -26,7 +27,7 @@ export default function Login() {
         // handle validation
         if(logindetail.userName.trim() ==="" || 
           logindetail.userPassword.trim() ==="") {
-            toast.error("Username and password required")
+            swal("Error!", "Username & Password is required", "error");
             return;
         }
         // submit data to server
@@ -37,8 +38,13 @@ export default function Login() {
             userRoles.map(async (role) => {
                 if(role.roleName === "Admin"){
                     isAdmin = true;
-                    alert("Admin Logged in Successfully")
-                    navigate("/list")
+                    swal({
+                        title: "Good job!",
+                        text: "Logged Successfully",
+                        icon: "success",
+                        button: "!",
+                      });
+                     navigate("/list")
                 }
             })
             // console.log(jwtTokenData.user.role )
@@ -49,7 +55,7 @@ export default function Login() {
             })
             // toast.success("User Login is Successful")
            if(isAdmin === false){
-            alert("You are Unauthorized")
+            swal("Not Authorized!", "Not an Admin", "error");
             navigate("/user")
            }
             
@@ -58,7 +64,7 @@ export default function Login() {
             if(error.response.status===401 || error.response.status===404){
                 alert(error.response.data.message)
             }
-            alert("something went wrong on server ")
+            swal("Error!", "Something went wrong on server", "error");
         })
     }
 
